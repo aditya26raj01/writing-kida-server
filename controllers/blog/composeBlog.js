@@ -46,6 +46,7 @@ const composeBlog = async (req, res) => {
                 }
             }
         ])
+        fs.rm(path.join(__dirname + '/../../images/' + req.file.filename));
         success = true;
         return res.status(200).json({ success: success, blog: blog, message: "Successfully Added a New Blog!"});
     } catch (error) {
